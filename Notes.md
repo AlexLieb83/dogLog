@@ -20,3 +20,5 @@
 9. Test DB connection is working
 10. set up views folder
     - edit.ejs, home.ejs, upload.ejs
+11. set up public folder
+    - images, styles - css

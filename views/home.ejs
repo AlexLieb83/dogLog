@@ -21,6 +21,8 @@
     <% dogs.forEach(dog => { %>
     <div>
       <div>
+        <img src="/images/<%= dog.image %>" alt="dog image" />
+        <div></div>
         <h5><%= dog.name %></h5>
         <p>
           Age: <%= dog.age %> <br />
@@ -28,10 +30,14 @@
           Fun Fact: <%= dog.funFact %> <br />
         </p>
       </div>
+
+      <div>
+        <a href="/edit/<%= dog._id%>">Edit</a>
+        <form action="/delete/<%= dog._id%>" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
     </div>
-    <div>
-      <a href="/edit/:id"></a>
-    </div>
-    })
+    <% }) %>
   </body>
 </html>
