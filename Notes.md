@@ -21,4 +21,4 @@
 10. set up views folder
     - edit.ejs, home.ejs, upload.ejs
 11. set up public folder
-    - images, styles - css
+    - images, styles folders
