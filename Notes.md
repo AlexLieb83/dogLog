@@ -17,3 +17,6 @@
      - async await, try catch
      - set up DB_STRING in .env
 8. call connectDB() in server.js
+9. Test DB connection is working
+10. set up views folder
+    - edit.ejs, home.ejs, upload.ejs

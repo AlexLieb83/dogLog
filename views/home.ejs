@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DogLog Gallery</title>
+    <!-- TODO Add stylesheet -->
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/upload">Upload</a>
+        </li>
+      </ul>
+    </div>
+    <% dogs.forEach(dog => { %>
+    <div>
+      <div>
+        <h5><%= dog.name %></h5>
+        <p>
+          Age: <%= dog.age %> <br />
+          Favorite Food: <%= dog.favoriteFood %> <br />
+          Fun Fact: <%= dog.funFact %> <br />
+        </p>
+      </div>
+    </div>
+    <div>
+      <a href="/edit/:id"></a>
+    </div>
+    })
+  </body>
+</html>
