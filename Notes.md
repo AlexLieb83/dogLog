@@ -8,4 +8,5 @@
    - set up PORT, process.env.PORT
    - set up app.listen()
 6. middlewear setup, in server.js
-   -
+   - app.use() - json
+   - app.use() - urlencoded
