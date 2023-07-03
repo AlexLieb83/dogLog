@@ -9,4 +9,11 @@
    - set up app.listen()
 6. middlewear setup, in server.js
    - app.use() - json
-   - app.use() - urlencoded
+   - app.use() - express.urlencoded
+   - app.use() - express.static
+   - app.set() - view engine
+7. create config folder
+   - connectDB.js setup DB connection
+     - async await, try catch
+     - set up DB_STRING in .env
+8. call connectDB() in server.js
