@@ -22,3 +22,6 @@
     - edit.ejs, home.ejs, upload.ejs
 11. set up public folder
     - images, styles folders
+12. set up models folder and files
+13. Set up route and controller folders
+    - set up routes in server.js
