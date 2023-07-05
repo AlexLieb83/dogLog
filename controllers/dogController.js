@@ -44,9 +44,39 @@ const createDog = async (req, res) => {
   }
 };
 
+const editPage = async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id);
+    res.render("edit", { dog: dog });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateDog = async (req, res) => {
+  try {
+    await Dog.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteDog = async (req, res) => {
+  try {
+    await Dog.findByIdAndRemove(req.params.id);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllDogs,
   createDog,
   upload,
   uploadPage,
+  editPage,
+  updateDog,
+  deleteDog,
 };

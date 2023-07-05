@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Dog</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/upload">Upload</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div>
+        <div>
+          <h2>Edit Dog's Information</h2>
+          <form action="/edit/<%= dog._id %>" method="POST">
+            <div>
+              <label for="name"></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value="<%= dog.name %>"
+                required
+              />
+            </div>
+            <div>
+              <label for="age"></label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                value="<%= dog.age %>"
+                required
+              />
+            </div>
+            <div>
+              <label for="favoriteFood"></label>
+              <input
+                type="text"
+                id="favoriteFood"
+                name="favoriteFood"
+                value="<%= dog.favoriteFood %>"
+                required
+              />
+            </div>
+            <div>
+              <label for="funFact"></label>
+              <input
+                type="text"
+                id="funFact"
+                name="funFact"
+                required
+                value="<%= dog.funFact %>"
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

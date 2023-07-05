@@ -9,8 +9,11 @@ router
   .get(dogController.uploadPage)
   .post(dogController.upload.single("image"), dogController.createDog);
 
-// router.route("/edit/:id").get(dogController.updateDog);
+router
+  .route("/edit/:id")
+  .get(dogController.editPage)
+  .post(dogController.updateDog);
 
-// router.route("/delete/:id").post(dogController.deleteDog);
+router.route("/delete/:id").post(dogController.deleteDog);
 
 module.exports = router;
