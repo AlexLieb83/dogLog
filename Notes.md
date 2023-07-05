@@ -25,3 +25,4 @@
 12. set up models folder and files
 13. Set up route and controller folders
     - set up routes in server.js
+14. Build out rest of view pages
