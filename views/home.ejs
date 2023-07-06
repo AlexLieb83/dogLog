@@ -8,17 +8,7 @@
     <!-- TODO Add stylesheet -->
   </head>
   <body>
-    <div>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/upload">Upload</a>
-        </li>
-      </ul>
-    </div>
-    <% dogs.forEach(dog => { %>
+    <%- include('partials/navbar')%> <% dogs.forEach(dog => { %>
     <div>
       <div>
         <img src="/images/<%= dog.image %>" alt="dog image" />
