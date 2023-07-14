@@ -4,11 +4,11 @@ const app = express();
 const mongoose = require("mongoose");
 const connectDB = require("./config/connectDB");
 const dogRoutes = require("./routes/dogRoutes");
+const userRoutes = require("./routes/userRoutes");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/userModel");
-const { session } = require("passport");
 
 const PORT = process.env.PORT || 3500;
 
@@ -42,6 +42,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", dogRoutes);
+app.use("/", userRoutes);
 
 // make sure DB is connected before starting server
 mongoose.connection.once("open", () => {

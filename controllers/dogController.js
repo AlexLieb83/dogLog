@@ -16,15 +16,15 @@ const upload = multer({ storage: storage });
 
 const getAllDogs = async (req, res) => {
   try {
-    const dogs = await Dog.find();
-    res.render("home", { dogs: dogs });
+    const dogs = await Dog.find().populate("owner");
+    res.render("home", { dogs: dogs, user: req.user });
   } catch (error) {
     console.log(error);
   }
 };
 
 const uploadPage = (req, res) => {
-  res.render("upload");
+  res.render("upload", { user: req.user });
 };
 
 const createDog = async (req, res) => {
@@ -35,6 +35,7 @@ const createDog = async (req, res) => {
       favoriteFood: req.body.favoriteFood,
       funFact: req.body.funFact,
       image: req.file.filename, //multer places the file info into req.file
+      owner: req.user._id,
     });
 
     await dog.save();
@@ -47,7 +48,7 @@ const createDog = async (req, res) => {
 const editPage = async (req, res) => {
   try {
     const dog = await Dog.findById(req.params.id);
-    res.render("edit", { dog: dog });
+    res.render("edit", { dog: dog, user: req.user });
   } catch (error) {
     console.log(error);
   }
@@ -55,7 +56,10 @@ const editPage = async (req, res) => {
 
 const updateDog = async (req, res) => {
   try {
-    await Dog.findByIdAndUpdate(req.params.id, req.body);
+    let dog = await Dog.findById(req.params.id);
+    if (dog.owner.equals(req.user._id)) {
+      await Dog.findByIdAndUpdate(req.params.id, req.body);
+    }
     res.redirect("/");
   } catch (error) {
     console.log(error);
@@ -64,7 +68,10 @@ const updateDog = async (req, res) => {
 
 const deleteDog = async (req, res) => {
   try {
-    await Dog.findByIdAndRemove(req.params.id);
+    let dog = await Dog.findById(req.params.id);
+    if (dog.owner.equals(req.user._id)) {
+      findByIdAndRemove(req.params.id);
+    }
     res.redirect("/");
   } catch (error) {
     console.log(error);

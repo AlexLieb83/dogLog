@@ -19,14 +19,14 @@
           Favorite Food: <%= dog.favoriteFood %> <br />
           Fun Fact: <%= dog.funFact %> <br />
         </p>
+        <p>Posted by: <%= dog.owner.username %></p>
       </div>
-
-      <div>
-        <a href="/edit/<%= dog._id%>">Edit</a>
-        <form action="/delete/<%= dog._id%>" method="POST">
-          <button type="submit">Delete</button>
-        </form>
-      </div>
+      <% if (currentUser && dog.owner._id.equals(currentUser._id)) {%>
+      <a href="/edit/<%= dog._id%>">Edit</a>
+      <form action="/delete/<%= dog._id%>" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <% } %>
     </div>
     <% }) %>
   </body>

@@ -6,6 +6,10 @@ const dogSchema = new mongoose.Schema({
   favoriteFood: String,
   funFact: String,
   image: String,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Dog", dogSchema);
